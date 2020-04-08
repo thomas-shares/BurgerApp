@@ -1,8 +1,8 @@
 (ns app.component.main
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             [com.fulcrologic.fulcro.dom :as dom]
-            [app.component.Burger.burger :refer [ui-burger Burger]]
-            [app.component.Burger.build-controls :refer [ui-build-controls BuildControls]]
+            [app.component.burger.burger :refer [ui-burger Burger]]
+            [app.component.burger.build-controls :refer [ui-build-controls BuildControls]]
             [app.ui :refer [ui-modal Modal]]))
 
 

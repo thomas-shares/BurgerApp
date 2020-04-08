@@ -1,4 +1,4 @@
-(ns app.component.Burger.build-controls
+(ns app.component.burger.build-controls
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             [com.fulcrologic.fulcro.dom :as dom]
             [com.fulcrologic.fulcro.mutations :as m :refer [defmutation]]))

@@ -1,4 +1,4 @@
-(ns app.component.Burger.burger-ingredient
+(ns app.component.burger.burger-ingredient
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             [com.fulcrologic.fulcro.dom :as dom]))
 
