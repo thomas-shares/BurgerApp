@@ -12,7 +12,6 @@
     "Cheese" (dom/div {:className "Cheese"})
     "Meat" (dom/div {:className "Meat"})
     "Bread-bottom" (dom/div {:className "BreadBottom"})))
-    ;(js/alert "FAIL")))
 
 (def ui-burger-ingredient (comp/factory BurgerIngredient))
 

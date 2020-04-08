@@ -13,8 +13,6 @@
                                        {:id 2 :ingredient "Cheese" :count 0 :price 0.2}
                                        {:id 3 :ingredient "Meat" :count 1 :price 1.0}]}}
   (let [tranformed-ingredients (flatten (map #(into [] (repeat (:count %) %)) ingredients))]
-    ;(js/console.log  "Burger: " ingredients)
-    ;(js/console.log tranformed-ingredients)
     (dom/div {:className "Burger"}
        (ui-burger-ingredient {:ingredient "Bread-top"})
        (if (zero? (reduce + 0 (map #(:count %) ingredients)))

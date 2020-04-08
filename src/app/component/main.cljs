@@ -16,7 +16,6 @@
    :initial-state (fn [_] {:order/burger (comp/get-initial-state Burger)
                            :control/ingredients (comp/get-initial-state BuildControls)
                            :ui/modal (comp/get-initial-state Modal)})}
-  (js/console.log "Main : "  props)
   (dom/div
     (ui-burger burger)
     (ui-build-controls props)

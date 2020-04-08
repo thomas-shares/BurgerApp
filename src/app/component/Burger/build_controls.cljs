@@ -8,7 +8,6 @@
   (action [{:keys [state]}]
     (let [id (:id props)
           price (:price props)]
-      ;(js/console.log id price (get-in @state [:order/id 1 :order/total-price]))
       (swap! state update-in [:order/id 1 :order/ingredients id :count] inc)
       (swap! state update-in [:order/id 1 :order/total-price] + price))))
 
@@ -16,21 +15,18 @@
   (action [{:keys [state]}]
      (let [id (:id props)
            price (:price props)]
-       ;(js/console.log id price (get-in @state [:order/id 1 :order/total-price]))
        (swap! state update-in [:order/id 1 :order/ingredients id :count] dec)
        (swap! state update-in [:order/id 1 :order/total-price] - price))))
 
 
 (defmutation toggle-modal [_]
   (action [{:keys [state]}]
-    (let [modal? (get-in @state [:ui/id 1 :ui/modal?])]
-      (js/console.log "Toggle Modal: "  modal?)
-      (swap! state assoc-in [:ui/id 1 :ui/modal?] (not modal?)))))
+    (let [modal? (get-in @state [:singleton :app.ui/modal :ui/modal])]
+      (swap! state assoc-in [:singleton :app.ui/modal :ui/modal] (not modal?)))))
 
 
 (defsc BuildControl [this props]
   {}
-  ;(js/console.log "control: " props)
   (dom/div {:className "BuildControl"}
     (dom/div {:className "Label"} (:ingredient props))
     (dom/button {:className "Less"
@@ -45,7 +41,6 @@
   {:query [:control/id :order/burger]
    :ident :control/id
    :initial-state {}}
-  ;(js/console.log  "BuildControls: "  (:order/total-price burger))
   (let [ingredients (:order/ingredients burger)]
     (dom/div {:className "BuildControls"}
       (dom/p "Current Price: " (dom/strong (.toFixed (:order/total-price burger) 2)))
