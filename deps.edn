@@ -2,7 +2,8 @@
  :deps    {org.clojure/clojure    {:mvn/version "1.10.1"}
            com.fulcrologic/fulcro {:mvn/version "3.2.0"}
            org.clojure/core.async {:mvn/version "1.1.582"}
-           com.wsscode/pathom {:mvn/version "2.2.26"}}
+           com.wsscode/pathom {:mvn/version "2.2.26"}
+           kibu/pushy {:mvn/version "0.3.8"}}
 
  :aliases {:dev {:extra-paths ["src/dev"]
                  :extra-deps  {org.clojure/clojurescript   {:mvn/version "1.10.597"}
