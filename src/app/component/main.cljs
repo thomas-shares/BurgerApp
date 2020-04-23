@@ -9,10 +9,10 @@
                    :ui/keys [modal] :as props}]
   {:query [{:order/burger (comp/get-query Burger)}
            {:ui/modal (comp/get-query Modal)}]
+   :ident (fn [_] [:singleton ::main])
    :initial-state (fn [_] {:order/burger (comp/get-initial-state Burger)
                            :ui/modal (comp/get-initial-state Modal)})
-   :route-segment ["order"]}
-  ;;(js/console.log "main" props)
+   :route-segment [""]}
   (dom/div
     (ui-burger burger)
     (ui-build-controls burger)

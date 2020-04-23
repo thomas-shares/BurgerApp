@@ -23,7 +23,6 @@
     (let [modal? (get-in @state [:singleton :app.ui/modal :ui/modal])]
       (swap! state assoc-in [:singleton :app.ui/modal :ui/modal] (not modal?)))))
 
-
 (defsc BuildControl [this props]
   {}
   (dom/div {:className "BuildControl"}
