@@ -6,7 +6,6 @@
 
 (defonce history (pushy/pushy (fn [p]
                                 (let [route-segments (vec (rest (str/split p "/")))]
-                                  (js/console.log "Routing: " route-segments)
                                   (dr/change-route app route-segments ))) identity))
 
 (defn start! []

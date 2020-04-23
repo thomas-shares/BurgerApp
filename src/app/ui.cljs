@@ -6,7 +6,6 @@
             [app.component.burger.burger :refer [Burger]]))
 
 (defsc Backdrop [this {:ui/keys [modal] :as props}]
-  {}
   (when modal
     (dom/div {:className "Backdrop" :onClick
                          #(comp/transact! this [(toggle-modal props)])})))
