@@ -2,9 +2,6 @@
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             [com.fulcrologic.fulcro.dom :as dom]))
 
-
-
-
 (defsc ToolBar [this props]
   {:query []}
   (dom/header {:className "ToolBar"}

@@ -1,9 +1,9 @@
-(ns app.component.Burger.burger-ingredient
+(ns app.component.burger.burger-ingredient
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc BurgerIngredient [this props]
-  (condp = (:ingredient props)
+  (case (:ingredient props)
     "Bread-top" (dom/div {:className "BreadTop"}
                   (dom/div {:className "Seeds1"})
                   (dom/div {:className "Seed2"}))
@@ -12,7 +12,6 @@
     "Cheese" (dom/div {:className "Cheese"})
     "Meat" (dom/div {:className "Meat"})
     "Bread-bottom" (dom/div {:className "BreadBottom"})))
-    ;(js/alert "FAIL")))
 
 (def ui-burger-ingredient (comp/factory BurgerIngredient))
 

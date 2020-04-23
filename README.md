@@ -13,3 +13,10 @@ npx shadow-cljs server
 
 Browse to http://localhost:9630/ for the build server and
 http://localhost:8000/ for the actual web page.
+
+
+## Fulcro help
+Links to pages where I found things that helped with the development of this:
+
+* https://gist.github.com/holyjak/da15f613376bf7015385a7cd899ee3e8
+* https://chrisodonnell.dev/posts/giftlist/routing/
