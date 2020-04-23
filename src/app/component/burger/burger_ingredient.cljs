@@ -3,7 +3,7 @@
             [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc BurgerIngredient [this props]
-  (condp = (:ingredient props)
+  (case (:ingredient props)
     "Bread-top" (dom/div {:className "BreadTop"}
                   (dom/div {:className "Seeds1"})
                   (dom/div {:className "Seed2"}))

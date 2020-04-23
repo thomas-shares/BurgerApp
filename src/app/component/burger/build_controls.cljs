@@ -21,7 +21,7 @@
 (defmutation toggle-modal [_]
   (action [{:keys [state]}]
     (let [modal? (get-in @state [:singleton :app.ui/modal :ui/modal])]
-      (swap! state assoc-in [:singleton :app.ui/modal :ui/modal] (not modal?)))))
+      (swap! state update-in [:singleton :app.ui/modal :ui/modal] not modal?))))
 
 (defsc BuildControl [this props]
   {}
@@ -39,11 +39,12 @@
   {:query [:order/ingredients :order/total-price]
    :ident (fn [] [:singleton ::control])
    :initial-state {}}
+  (js/console.log props ingredients total-price)
   (dom/div {:className "BuildControls"}
     (dom/p "Current Price: " (dom/strong (.toFixed total-price 2)))
     (map ui-build-control ingredients)
     (dom/button {:className "OrderButton"
-                 :disabled (zero? (reduce + 0 (map #(:count %) ingredients)))
+                 :disabled (zero? (reduce + 0 (map :count ingredients)))
                  :onClick #(comp/transact! this [(toggle-modal)])} "Order Now")))
 
 (def ui-build-controls (comp/factory BuildControls))

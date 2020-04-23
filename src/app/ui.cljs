@@ -13,14 +13,13 @@
 (def ui-backdrop (comp/factory Backdrop))
 
 
-(defsc Modal [this {:ui/keys [modal burger] :as props}]
-  {:query [:ui/id :ui/modal {:ui/burger (comp/get-query Burger)}]
+(defsc Modal [this {:ui/keys [modal ingredients] :as props}]
+  {:query [:ui/id :ui/modal {:ui/ingredients (comp/get-query Burger)}]
    :ident (fn [] [:singleton ::modal])
    :initial-state (fn [_] {:ui/id 1
                            :ui/modal false
-                           :ui/burger (comp/get-initial-state Burger)})}
-  (let [ingredients burger
-        css (if modal :.show :.noShow)
+                           :ui/ingredients (comp/get-initial-state Burger)})}
+  (let [css (if modal "show" "noShow")
         burger-data (map #(select-keys % [:ingredient :count]) (:order/ingredients ingredients))]
     (comp/fragment
       (ui-backdrop props)

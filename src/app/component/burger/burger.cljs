@@ -12,10 +12,10 @@
                                        {:id 1 :ingredient "Salad" :count 0 :price 0.1}
                                        {:id 2 :ingredient "Cheese" :count 0 :price 0.2}
                                        {:id 3 :ingredient "Meat" :count 1 :price 1.0}]}}
-  (let [transformed-ingredients (flatten (map #(into [] (repeat (:count %) %)) ingredients))]
+  (let [transformed-ingredients (mapcat #(into [] (repeat (:count %) %)) ingredients)]
     (dom/div {:className "Burger"}
        (ui-burger-ingredient {:ingredient "Bread-top"})
-       (if (zero? (reduce + 0 (map #(:count %) ingredients)))
+       (if (zero? (reduce + 0 (map :count ingredients)))
          (dom/div (dom/strong "Please start adding ingredients!"))
          (map ui-burger-ingredient transformed-ingredients))
        (ui-burger-ingredient {:ingredient "Bread-bottom"}))))
