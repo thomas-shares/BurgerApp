@@ -3,7 +3,6 @@
             [com.fulcrologic.fulcro.dom :as dom]
             [com.fulcrologic.fulcro.mutations :as m :refer [defmutation]]))
 
-
 (defmutation add-ingredient [props]
   (action [{:keys [state]}]
     (let [id (:id props)
@@ -24,7 +23,6 @@
       (swap! state update-in [:singleton :app.ui/modal :ui/modal] not modal?))))
 
 (defsc BuildControl [this props]
-  {}
   (dom/div {:className "BuildControl"}
     (dom/div {:className "Label"} (:ingredient props))
     (dom/button {:className "Less"
@@ -39,7 +37,6 @@
   {:query [:order/ingredients :order/total-price]
    :ident (fn [] [:singleton ::control])
    :initial-state {}}
-  (js/console.log props ingredients total-price)
   (dom/div {:className "BuildControls"}
     (dom/p "Current Price: " (dom/strong (.toFixed total-price 2)))
     (map ui-build-control ingredients)

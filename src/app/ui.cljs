@@ -12,7 +12,6 @@
 
 (def ui-backdrop (comp/factory Backdrop))
 
-
 (defsc Modal [this {:ui/keys [modal ingredients] :as props}]
   {:query [:ui/id :ui/modal {:ui/ingredients (comp/get-query Burger)}]
    :ident (fn [] [:singleton ::modal])
@@ -33,9 +32,9 @@
         (dom/button {:classes ["Button Danger"]
                      :onClick #(comp/transact! this [(toggle-modal props)])}
                     "CANCEL")
-        (dom/a {:href "checkout"}
+        (dom/a {:href "/checkout"}
           (dom/button {:classes ["Button Success"]
-                       :onClick #((comp/transact! this [(toggle-modal props)]))}
+                       :onClick #(comp/transact! this [(toggle-modal props)])}
                       "CONTINUE"))))))
 
 (def ui-modal (comp/factory Modal))

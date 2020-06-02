@@ -10,11 +10,11 @@
     [app.component.main :refer [ui-main Main]]
     [app.component.sidebar :refer [ui-sidebar SideBar]]
     [app.component.toolbar :refer [ui-toolbar ToolBar]]
-    [app.component.checkout :refer [ui-checkout Checkout]]
+    [app.component.checkout :refer [ui-checkout Checkout ContactDetails]]
     [com.fulcrologic.fulcro.algorithms.denormalize :as fdn]))
 
 (defrouter TopRouter [this {:keys [current-state route-props] :as props}]
-  {:router-targets [Main Checkout]}
+  {:router-targets [Main Checkout ContactDetails]}
   (ui-main route-props))
 
 (def ui-top-router (comp/factory TopRouter))
